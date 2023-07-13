@@ -30,7 +30,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult<List<ProductDto>>(CustomResponseDto<List<ProductDto>>.Success(200, productsDtos));
         }
 
-        [HttpGet("(id)")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var product = await _service.GetByIdAsync(id);
@@ -53,7 +53,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
 
-        [HttpDelete("(id)")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {
             var product = await _service.GetByIdAsync(id);

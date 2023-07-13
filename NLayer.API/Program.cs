@@ -15,6 +15,7 @@ using NLayer.Service.Validations;
 using System.Reflection;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -61,7 +62,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCustomException();
+//app.UseCustomException();
 
 app.UseAuthorization();
 
