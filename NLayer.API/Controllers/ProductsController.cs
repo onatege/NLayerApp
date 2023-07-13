@@ -3,20 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Services;
+using NLayer.Service.Services;
 
 namespace NLayer.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ProductsController : CustomBaseController
     {
         private readonly IMapper _mapper;
-        private readonly IService<Product> _service;
+        private readonly IProductService _service;
 
-        public ProductsController(IService<Product> service, IMapper mapper)
+        public ProductsController(IService<Product> service, IMapper mapper, IProductService productService)
         {
-            _service = service;
+            _service = productService;
             _mapper = mapper;
+        }
+        [HttpGet("GetProductsWithCategory")]
+        public async Task<IActionResult> GetProductsWithCategory()
+        {
+            return CreateActionResult(await _service.GetProductsWithCategory());
         }
 
         [HttpGet]
