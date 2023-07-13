@@ -1,4 +1,6 @@
-﻿namespace NLayer.Core
+﻿using NLayer.Core.Entities;
+
+namespace NLayer.Core.Entities
 {
     public class Category : BaseEntity
     {

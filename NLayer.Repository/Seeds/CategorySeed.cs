@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Identity.Client;
-using NLayer.Core;
+using NLayer.Core.Entities;
 
 namespace NLayer.Repository.Seeds
 {

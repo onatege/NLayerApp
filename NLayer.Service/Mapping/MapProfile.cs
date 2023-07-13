@@ -2,6 +2,7 @@
 using NLayer.Core.DTOs;
 using NLayer.Core;
 using System.Net.Sockets;
+using NLayer.Core.Entities;
 
 namespace NLayer.Service.Mapping
 {
