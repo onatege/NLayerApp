@@ -7,7 +7,7 @@ namespace NLayer.API.Middlewares
 {
     public static class UseCustomExceptionHandler
     {
-        public static void UseCustomException(this IApplicationBuilder app) 
+        public static void UseCustomException(this IApplicationBuilder app)
         {
             app.UseExceptionHandler(config =>
             {
@@ -18,12 +18,18 @@ namespace NLayer.API.Middlewares
                     var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
                     var statusCode = exceptionFeature.Error switch
                     {
+                        //ClientSideException => HttpStatusCode.BadRequest,
                         ClientSideException => 400,
-                        _ => 500
+                        //NotFoundException => HttpStatusCode.NotFound,
+                        NotFoundException => 404,
+                        _ => 500,
+                        //_ => HttpStatusCode.InternalServerError,
                     };
+
                     context.Response.StatusCode = statusCode;
                     var response = CustomResponseDto<NoContentDto>.Fail(statusCode, exceptionFeature.Error.Message);
                     await context.Response.WriteAsync(JsonSerializer.Serialize(response));
+
                 });
             });
         }
