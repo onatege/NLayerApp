@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Services;
-using NLayer.Service.Services;
 
 namespace NLayer.API.Controllers
 {
